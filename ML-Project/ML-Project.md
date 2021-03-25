@@ -522,7 +522,7 @@ plt.pie(count_of_each_activity, labels = activities, autopct = '%0.2f')
 
 
     
-![png](output_18_1.png)
+![png](Images/output_18_1.png)
     
 
 
@@ -556,7 +556,7 @@ plt.bar(['Accelerometer', 'Gyroscope', 'Others'], [acc, gyro, others], color = (
 
 
     
-![png](output_20_1.png)
+![png](Images/output_20_1.png)
     
 
 
@@ -625,7 +625,7 @@ for subject in standing_activity_df['subject'].unique():
 
 
     
-![png](output_29_0.png)
+![png](Images/output_29_0.png)
     
 
 
@@ -724,7 +724,7 @@ plt.title('Accuracy of various algorithms')
 
 
     
-![png](output_42_1.png)
+![png](Images/output_42_1.png)
     
 
 
