@@ -26,6 +26,8 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.ensemble import RandomForestClassifier
 #Accuracy score
 from sklearn.metrics import accuracy_score
+from sklearn.metrics import confusion_matrix
+from sklearn.metrics import classification_report
 ```
 
 **Support Vector Machine**-Support vector machine (SVM) is supervised machine learning algorithm which can be used both for classification and regression problems. But generally, it is used in classification problems
@@ -647,9 +649,32 @@ clf = SVC().fit(X_train, y_train)
 prediction = clf.predict(X_test)
 accuracy_scores[0] = accuracy_score(y_test, prediction)*100
 print('Support Vector Classifier accuracy: {}%'.format(accuracy_scores[0]))
+print("\n\nConfusion metrix:\n {}".format(confusion_matrix(y_test,prediction)))
+print("\n\nClassification report:\n {}".format(classification_report(y_test,prediction)))
 ```
 
     Support Vector Classifier accuracy: 95.04580929759076%
+    
+    Confusion metrix:
+    [[537   0   0   0   0   0]
+    [  0 438  51   0   0   2]
+    [  0  29 503   0   0   0]
+    [  0   0   0 488   3   5]
+    [  0   0   0  10 384  26]
+    [  0   0   0  20   0 451]]
+    
+    Classification report:
+                         precision    recall  f1-score   support
+            LAYING       1.00      1.00      1.00       537
+           SITTING       0.94      0.89      0.91       491
+          STANDING       0.91      0.95      0.93       532
+           WALKING       0.94      0.98      0.96       496
+    WALKING_DOWNSTAIRS   0.99      0.91      0.95       420
+    WALKING_UPSTAIRS     0.93      0.96      0.94       471
+    
+          accuracy                           0.95      2947
+         macro avg       0.95      0.95      0.95      2947
+      weighted avg       0.95      0.95      0.95      2947
     
 
 # Logistic Regression
@@ -660,9 +685,32 @@ clf = LogisticRegression().fit(X_train, y_train)
 prediction = clf.predict(X_test)
 accuracy_scores[1] = accuracy_score(y_test, prediction)*100
 print('Logistic Regression accuracy: {}%'.format(accuracy_scores[1]))
+print("\n\nConfusion metrix:\n {}".format(confusion_matrix(y_test,prediction)))
+print("\n\nClassification report:\n {}".format(classification_report(y_test,prediction)))
 ```
 
     Logistic Regression accuracy: 95.79233118425518%
+    
+    Confusion metrix:
+    [[537   0   0   0   0   0]
+    [  0 429  59   0   0   3]
+    [  0  16 516   0   0   0]
+    [  0   0   0 493   2   1]
+    [  0   0   0   4 405  11]
+    [  0   0   0  25   1 445]]
+    
+    Classification report:
+                         precision    recall  f1-score   support
+            LAYING       1.00      1.00      1.00       537
+           SITTING       0.96      0.87      0.92       491
+          STANDING       0.90      0.97      0.93       532
+           WALKING       0.94      0.99      0.97       496
+    WALKING_DOWNSTAIRS   0.99      0.96      0.98       420           
+    WALKING_UPSTAIRS     0.97      0.94      0.96       471
+
+          accuracy                           0.96      2947
+         macro avg       0.96      0.96      0.96      2947
+      weighted avg       0.96      0.96      0.96      2947          
     
 
     d:\python\lib\site-packages\sklearn\linear_model\_logistic.py:764: ConvergenceWarning: lbfgs failed to converge (status=1):
@@ -683,10 +731,33 @@ clf = KNeighborsClassifier().fit(X_train, y_train)
 prediction = clf.predict(X_test)
 accuracy_scores[2] = accuracy_score(y_test, prediction)*100
 print('K Nearest Neighbors Classifier accuracy: {}%'.format(accuracy_scores[2]))
+print("\n\nConfusion metrix:\n {}".format(confusion_matrix(y_test,prediction)))
+print("\n\nClassification report:\n {}".format(classification_report(y_test,prediction)))
 ```
 
     K Nearest Neighbors Classifier accuracy: 90.02375296912113%
     
+    Confusion metrix:
+    [[534   2   1   0   0   0]
+    [  0 389 100   0   0   2]
+    [  0  37 495   0   0   0]
+    [  0   0   0 485  10   1]
+    [  0   0   0  45 331  44]
+    [  0   0   0  40  12 419]]
+    
+    Classification report:
+                         precision    recall  f1-score   support
+            LAYING       1.00      0.99      1.00       537
+           SITTING       0.91      0.79      0.85       491
+          STANDING       0.83      0.93      0.88       532
+           WALKING       0.85      0.98      0.91       496                         
+    WALKING_DOWNSTAIRS   0.94      0.79      0.86       420  
+    WALKING_UPSTAIRS     0.90      0.89      0.89       471
+    
+          accuracy                           0.90      2947
+         macro avg       0.90      0.90      0.90      2947
+      weighted avg       0.90      0.90      0.90      2947
+      
 
 # Random Forest
 
@@ -696,9 +767,32 @@ clf = RandomForestClassifier().fit(X_train, y_train)
 prediction = clf.predict(X_test)
 accuracy_scores[3] = accuracy_score(y_test, prediction)*100
 print('Random Forest Classifier accuracy: {}%'.format(accuracy_scores[3]))
+print("\n\nConfusion metrix:\n {}".format(confusion_matrix(y_test,prediction)))
+print("\n\nClassification report:\n {}".format(classification_report(y_test,prediction)))
 ```
 
     Random Forest Classifier accuracy: 92.46691550729555%
+    
+    Confusion metrix:
+    [[537   0   0   0   0   0]
+    [  0 443  48   0   0   0]
+    [  0  48 484   0   0   0]
+    [  0   0   0 480   7   9]
+    [  0   0   0  19 355  46]
+    [  0   0   0  32   8 431]]
+    
+    Classification report:
+                         precision    recall  f1-score   support
+            LAYING       1.00      1.00      1.00       537
+           SITTING       0.90      0.90      0.90       491
+          STANDING       0.91      0.91      0.91       532
+           WALKING       0.90      0.97      0.93       496  
+    WALKING_DOWNSTAIRS   0.96      0.85      0.90       420
+    WALKING_UPSTAIRS     0.89      0.92      0.90       471
+    
+          accuracy                           0.93      2947
+         macro avg       0.93      0.92      0.92      2947
+      weighted avg       0.93      0.93      0.93      2947          
     
 
 * **visualise the outputs as a bar graph.**
